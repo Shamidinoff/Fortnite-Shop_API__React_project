@@ -1,12 +1,13 @@
 function GoodsItem(props) {
     const {
-        id,
-        name,
-        description,
-        price,
-        full_background,
-
+        'mainId': id,
+        "displayName": name,
+        "displayDescription": description,
+        "price": price,
+        "displayAssets": full_background
     } = props;
+
+
 
     return <div className="card" id={id}>
         <div className="card-image">

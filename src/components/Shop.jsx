@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { API_KEY, API_URL } from "../config";
 
-
 import { Preloader } from "./Preloader";
 import { GoodsList } from "./GoodsList";
 
@@ -14,13 +13,14 @@ function Shop() {
             headers: {
                 "Authorization": API_KEY,
             }
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                data.featured && setGoods(data.featured); // featured
-                setLoading(false);
-            })
+        }).then((response) => response.json()).then((data) => {
+            data.shop && setGoods(data.shop);
+            setLoading(false);
+        });
     }, [])
+
+
+
 
     return <main className="container content">
         {
@@ -30,3 +30,4 @@ function Shop() {
 }
 
 export { Shop }
+
