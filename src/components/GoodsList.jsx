@@ -7,6 +7,8 @@ function GoodsList(props) {
         return <h3>Nothing here</h3>
     }
 
+    // console.log("Goods in GoodsList:", goods);
+
     return <div className="goods">
         {goods.map(item => (
             <GoodsItem key={item.id} {...item} />

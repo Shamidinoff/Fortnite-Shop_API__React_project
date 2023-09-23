@@ -14,7 +14,8 @@ function Shop() {
                 "Authorization": API_KEY,
             }
         }).then((response) => response.json()).then((data) => {
-            data.shop && setGoods(data.shop);
+            console.log(data.daily);
+            data.daily && setGoods(data.daily);
             setLoading(false);
         });
     }, [])
