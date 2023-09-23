@@ -9,6 +9,7 @@ function Shop() {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([]);
+    const [isBasketShow, setIsBasketShow] = useState(false);
 
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
@@ -37,6 +38,10 @@ function Shop() {
 
     }
 
+    const handleBasketShow = () => {
+        setIsBasketShow(!isBasketShow);
+    }
+
     useEffect(function getGoods() {
         fetch(API_URL, {
             headers: {
@@ -53,7 +58,7 @@ function Shop() {
 
 
     return <main className="container content">
-        <Cart quantity={order.length} />
+        <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
         {
             loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />
         }
