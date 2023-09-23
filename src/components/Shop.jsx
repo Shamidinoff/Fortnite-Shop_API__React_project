@@ -4,6 +4,7 @@ import { API_KEY, API_URL } from "../config";
 import { Preloader } from "./Preloader";
 import { GoodsList } from "./GoodsList";
 import { Cart } from "./Cart";
+import { BasketList } from "./BasketList";
 
 function Shop() {
     const [goods, setGoods] = useState([]);
@@ -61,6 +62,9 @@ function Shop() {
         <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
         {
             loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />
+        }
+        {
+            isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow} />
         }
     </main>
 }
